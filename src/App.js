@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CompaniesContainer from './containers/CompaniesContainer'
 class App extends React.Component {
 
   componentDidMount() {
@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
   return (
     <div className= "App">
-      App
+      <CompaniesContainer />
     </div>
   )
   }
