@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
+import companyReducer from './reducers/companyReducer'
 
 import App from './App';
 
@@ -11,7 +12,7 @@ import App from './App';
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 //data is in store for 'global app use', reducer will take the action and return the new updated store
-let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+let store = createStore(companyReducer, composeEnhancers(applyMiddleware(thunk)))
 
 
 //store needs to be passed to the provider to give app access to store
