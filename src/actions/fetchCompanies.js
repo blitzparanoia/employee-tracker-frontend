@@ -5,6 +5,10 @@ export function fetchCompanies() {
             method: 'GET'
         })
         .then(response => response.json())
+        .then(companies => dispatch({
+            type: 'FETCH_COMPANIES',
+            payload: companies
+        }))
         
     }
 }
