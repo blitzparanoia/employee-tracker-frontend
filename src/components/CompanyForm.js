@@ -1,4 +1,7 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {addCompany} from '../actions/addCompany'
+
 
 //form is controlled, use class component to control the values using local state or store
 
@@ -40,4 +43,4 @@ class CompanyForm extends React.Component {
     }
 }
 
-export default CompanyForm
+export default connect(null, { addCompany }) (CompanyForm)
