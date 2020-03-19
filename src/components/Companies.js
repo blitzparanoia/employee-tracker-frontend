@@ -7,6 +7,10 @@ const Companies = (props) => {
     return(
         <div>
             Companies List
+            {props.companies.map(company => 
+                <li key={company.id}>
+                    {company.name}
+                    </li>)}
         </div>
     )
 
