@@ -9,6 +9,6 @@ export function fetchCompanies() {
             type: 'FETCH_COMPANIES',
             payload: companies
         }))
-        
+
     }
 }

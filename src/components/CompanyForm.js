@@ -8,12 +8,12 @@ import {addCompany} from '../actions/addCompany'
 class CompanyForm extends React.Component {
 
     state = {
-        name: ''
+        name: ""
     }
 
     handleChange = (event) => {
         this.setState({
-            name: event.target.value
+            [event.target.name]: event.target.value
         })
     }
 
@@ -21,7 +21,7 @@ class CompanyForm extends React.Component {
         event.preventDefault()
         this.props.addCompany(this.state)
         this.setState({
-            name: ''
+            name: ""
         })
     }
 
@@ -31,20 +31,19 @@ class CompanyForm extends React.Component {
                 <br/>
                 Company Form
                 <form onSubmit={this.handleSubmit}>
-                    Add Company 
                     <br/>
                     <br/>
 
                     <label>Name:</label>
-                    <input type='text' placeholder='Company Name' value={this.state.name} onChange={this.handleChange} />
+                    <input type='text' placeholder='Company Name' value={this.state.name} name="name" onChange={this.handleChange} />
 
                     <br/>
 
-                    <input type='submit'/>
+                    <input type="submit" />
                 </form>
             </div>
         )
     }
 }
 
-export default connect(null, { addCompany }) (CompanyForm)
+export default connect(null, {addCompany})(CompanyForm)

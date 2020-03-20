@@ -1,4 +1,5 @@
 import React from 'react'
+import Company from './Company'
 
 //functional component responsible for rendering companies, via props from Companies container
 const Companies = (props) => {
@@ -7,10 +8,10 @@ const Companies = (props) => {
     return(
         <div>
             Companies List
-            {props.companies.map(company => 
-                <li key={company.id}>
-                    {company.name}
-                    </li>)}
+            {props.companies.map(company =>
+                <div key={company.id}>
+                  <Company company={company}/>
+                  </div>)}
         </div>
     )
 
