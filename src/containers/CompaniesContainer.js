@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Route, Switch} from 'react-router-dom'
 import { fetchCompanies } from '../actions/fetchCompanies'
 
 import Companies from '../components/Companies'
 import CompanyForm from '../components/CompanyForm'
-
+import Company from '../components/Company'
 
 class CompaniesContainer extends React.Component {
 
@@ -15,9 +16,15 @@ class CompaniesContainer extends React.Component {
     render() {
         return(
             <div>
-                CompanyContainer
-                < CompanyForm />
-                < Companies companies={this.props.companies} />
+              <Switch>
+                <Route path='/companies/new' component={CompanyForm} />
+
+                <Route path='/companies/:id' render={(routerProps) => <Company {...routerProps} companies={this.props.companies} />} />
+
+                <Route path='/companies' render={(routerProps) => <Companies {...routerProps} companies={this.props.companies}/>}/>
+
+
+                </Switch>
             </div>
         )
     }
