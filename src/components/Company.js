@@ -1,5 +1,7 @@
 import React from 'react'
 
+import EmployeeContainer from '../containers/EmployeeContainer'
+
 const Company = (props) => {
 
 let company = props.companies.filter(company => company.id == props.match.params.id)[0]
@@ -7,6 +9,8 @@ let company = props.companies.filter(company => company.id == props.match.params
   return(
     <li>
       Company: {company ? company.name : null}
+
+      <EmployeeContainer/>
     </li>
   )
 
