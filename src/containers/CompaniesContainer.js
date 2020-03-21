@@ -6,6 +6,8 @@ import { fetchCompanies } from '../actions/fetchCompanies'
 import Companies from '../components/Companies'
 import CompanyForm from '../components/CompanyForm'
 import Company from '../components/Company'
+import MainPage from '../components/MainPage'
+
 
 class CompaniesContainer extends React.Component {
 
@@ -17,6 +19,8 @@ class CompaniesContainer extends React.Component {
         return(
             <div>
               <Switch>
+                <Route exact path="/" component={MainPage} />
+
                 <Route path='/companies/new' component={CompanyForm} />
 
                 <Route path='/companies/:id' render={(routerProps) => <Company {...routerProps} companies={this.props.companies} />} />
