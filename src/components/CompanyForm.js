@@ -40,6 +40,8 @@ class CompanyForm extends React.Component {
                     <br/>
 
                     <input type="submit" />
+
+
                 </form>
             </div>
         )

@@ -16,7 +16,17 @@ export default function companyReducer(state = {companies: []}, action ) {
             }
         })
         return {...state, companies: companies}
-        
+
+        case 'DELETE_EMPLOYEE':
+        let companiesTwo = state.companies.map(company => {
+            if (company.id === action.payload.id) {
+                return action.payload
+            } else {
+                return company
+            }
+        })
+        return {...state, companies: companiesTwo}
+
         default:
             return state
 
