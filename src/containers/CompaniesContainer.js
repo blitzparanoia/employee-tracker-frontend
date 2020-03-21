@@ -41,5 +41,4 @@ const mapStateToProps = state => {
 }
 
 
-
 export default connect(mapStateToProps, { fetchCompanies }) (CompaniesContainer)

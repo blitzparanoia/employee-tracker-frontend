@@ -2,13 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addCompany} from '../actions/addCompany'
 
-
-//form is controlled, use class component to control the values using local state or store
-
 class CompanyForm extends React.Component {
 
     state = {
-        name: ""
+        name: "",
     }
 
     handleChange = (event) => {
@@ -19,28 +16,26 @@ class CompanyForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.history.push(`/companies`)
         this.props.addCompany(this.state)
         this.setState({
-            name: ""
+            name: "",
         })
     }
+
 
     render() {
         return (
             <div>
-                <br/>
-                Company Form
+                <h3>Add Company</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <br/>
-                    <br/>
 
                     <label>Name:</label>
                     <input type='text' placeholder='Company Name' value={this.state.name} name="name" onChange={this.handleChange} />
 
                     <br/>
-
+                    
                     <input type="submit" />
-
 
                 </form>
             </div>

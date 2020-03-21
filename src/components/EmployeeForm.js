@@ -28,7 +28,8 @@ class EmployeeForm extends React.Component {
       position: '',
       active: true
     })
-  }
+    }
+
 
   render() {
     return(
