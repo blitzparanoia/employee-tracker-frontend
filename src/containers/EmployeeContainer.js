@@ -1,10 +1,16 @@
 import React from 'react'
+import EmployeeForm from '../components/EmployeeForm'
+
+import Employees from '../components/Employees'
 
 class EmployeeContainer extends React.Component {
   render() {
     return(
       <div>
       EmployeeContainer
+      <EmployeeForm/>
+
+      <Employees employees={this.props.account && this.props.company.employees}/>
       </div>
     )
   }

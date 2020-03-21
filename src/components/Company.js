@@ -10,7 +10,7 @@ let company = props.companies.filter(company => company.id == props.match.params
     <li>
       Company: {company ? company.name : null}
 
-      <EmployeeContainer/>
+      <EmployeeContainer company={company}/>
     </li>
   )
 
