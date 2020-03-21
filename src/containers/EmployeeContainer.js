@@ -8,7 +8,7 @@ class EmployeeContainer extends React.Component {
     return(
       <div>
       EmployeeContainer
-      <EmployeeForm/>
+      <EmployeeForm company={this.props.company}/>
 
       <Employees employees={this.props.company && this.props.company.employees}/>
       </div>

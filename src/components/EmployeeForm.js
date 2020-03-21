@@ -17,11 +17,16 @@ class EmployeeForm extends React.Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+  }
+
   render() {
     return(
       <div>
       EmployeeForm
-      <form onSubmit="">
+      <form onSubmit={this.handleSubmit}>
         <label>First Name:</label>
         <input type='text' name='first_name' placeholder='First Name' value={this.state.first_name} onChange={this.handleChange}/>
 
