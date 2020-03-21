@@ -10,27 +10,31 @@ class EmployeeForm extends React.Component {
     position: '',
     active: true
   }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
     return(
       <div>
       EmployeeForm
-      <form>
+      <form onSubmit="">
         <label>First Name:</label>
-        <input type='text' name='first_name' placeholder='First Name' value={this.state.first_name}/>
+        <input type='text' name='first_name' placeholder='First Name' value={this.state.first_name} onChange={this.handleChange}/>
 
         <label>Last Name:</label>
-        <input type='text' name='last_name' placeholder='Last Name' value={this.state.last_name}/>
+        <input type='text' name='last_name' placeholder='Last Name' value={this.state.last_name} onChange={this.handleChange}/>
 
         <label>Department:</label>
-        <input type='text' name='department' placeholder='Department' value={this.state.value} />
+        <input type='text' name='department' placeholder='Department' value={this.state.value} onChange={this.handleChange} />
 
         <label>Position:</label>
-        <input type='text' name='position' placeholder='Position' value={this.state.position}/>
+        <input type='text' name='position' placeholder='Position' value={this.state.position} onChange={this.handleChange}/>
 
-
-
-
-
+        <input type='submit'/>
 
       </form>
       </div>
@@ -38,4 +42,4 @@ class EmployeeForm extends React.Component {
   }
 }
 
-export default EmployeeForm
+export default connect(null)(EmployeeForm)
