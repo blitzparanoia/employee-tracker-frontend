@@ -12,6 +12,7 @@ let company = props.companies.filter(company => company.id == props.match.params
 
       <EmployeeContainer company={company}/>
     </li>
+
   )
 
 }

@@ -10,7 +10,7 @@ class EmployeeContainer extends React.Component {
       EmployeeContainer
       <EmployeeForm/>
 
-      <Employees employees={this.props.account && this.props.company.employees}/>
+      <Employees employees={this.props.company && this.props.company.employees}/>
       </div>
     )
   }
