@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {addEmployee} from '../actions/addEmployee'
 
 class EmployeeForm extends React.Component {
 
@@ -19,7 +20,14 @@ class EmployeeForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-
+    this.props.addEmployee(this.state, this.props.company.id)
+    this.setState({
+      first_name: '',
+      last_name: '',
+      department: '',
+      position: '',
+      active: true
+    })
   }
 
   render() {
@@ -47,4 +55,4 @@ class EmployeeForm extends React.Component {
   }
 }
 
-export default connect(null)(EmployeeForm)
+export default connect(null, {addEmployee})(EmployeeForm)
