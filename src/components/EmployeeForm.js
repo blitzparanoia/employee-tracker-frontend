@@ -8,8 +8,7 @@ class EmployeeForm extends React.Component {
     first_name: '',
     last_name: '',
     department: '',
-    position: '',
-    active: true
+    position: ''
   }
 
   handleChange = (event) => {
@@ -25,8 +24,7 @@ class EmployeeForm extends React.Component {
       first_name: '',
       last_name: '',
       department: '',
-      position: '',
-      active: true
+      position: ''
     })
     }
 
@@ -46,7 +44,7 @@ class EmployeeForm extends React.Component {
           <br/>
         <label>Position:</label>
         <input type='text' name='position' placeholder='Position' value={this.state.position} onChange={this.handleChange}/>
-          <br/>
+        <br/>
         <input type='submit'/>
 
       </form>

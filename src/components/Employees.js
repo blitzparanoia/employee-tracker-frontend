@@ -16,7 +16,6 @@ const Employees = (props) => {
           <th>Name (last, first)</th>
           <th>Department</th>
           <th>Position</th>
-          <th>Active</th>
           <th>Delete</th>
         </tr>
       {props.employees && props.employees.map(employee =>
@@ -27,9 +26,7 @@ const Employees = (props) => {
           <td>{employee.department}</td>
 
           <td>{employee.position}</td>
-
-          <td>{employee.active}</td>
-
+          
           <td><button onClick={() => handleDelete(employee)}>Delete</button></td>
 
         </tr>

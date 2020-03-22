@@ -20,7 +20,7 @@ class EmployeeContainer extends React.Component {
       <div>
         <button onClick={this.showAddEmployee}>Add Employee</button>
 
-        {this.state.showAdd && <div><EmployeeForm company={this.props.company}/></div>}
+        {this.state.showAdd && (<div><EmployeeForm company={this.props.company}/></div>)}
 
         <br/><br/>
 
