@@ -10,14 +10,32 @@ const Employees = (props) => {
   }
 
   return(
-    <div>
+    <table align="center" border="5">
+      <tbody align="center">
+        <tr>
+          <th>Name (last, first)</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th>Active</th>
+          <th>Delete</th>
+        </tr>
       {props.employees && props.employees.map(employee =>
-        <div key={employee.id}>
-          {employee.last_name}, {employee.first_name}|{employee.department}|{employee.position}|{employee.active}
-          <button onClick={() => handleDelete(employee)}>Delete</button>
-        </div>
+        <tr key={employee.id}>
+
+          <td>{employee.last_name}, {employee.first_name}</td>
+
+          <td>{employee.department}</td>
+
+          <td>{employee.position}</td>
+
+          <td>{employee.active}</td>
+
+          <td><button onClick={() => handleDelete(employee)}>Delete</button></td>
+
+        </tr>
       )}
-    </div>
+    </tbody>
+  </table>
   )
 }
 

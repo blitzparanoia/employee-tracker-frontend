@@ -34,20 +34,19 @@ class EmployeeForm extends React.Component {
   render() {
     return(
       <div>
-      EmployeeForm
       <form onSubmit={this.handleSubmit}>
         <label>First Name:</label>
         <input type='text' name='first_name' placeholder='First Name' value={this.state.first_name} onChange={this.handleChange}/>
-
+        <br/>
         <label>Last Name:</label>
         <input type='text' name='last_name' placeholder='Last Name' value={this.state.last_name} onChange={this.handleChange}/>
-
+          <br/>
         <label>Department:</label>
-        <input type='text' name='department' placeholder='Department' value={this.state.value} onChange={this.handleChange} />
-
+        <input type='text' name='department' placeholder='Department' value={this.state.department} onChange={this.handleChange} />
+          <br/>
         <label>Position:</label>
         <input type='text' name='position' placeholder='Position' value={this.state.position} onChange={this.handleChange}/>
-
+          <br/>
         <input type='submit'/>
 
       </form>
