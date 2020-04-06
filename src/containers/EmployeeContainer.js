@@ -7,21 +7,26 @@ class EmployeeContainer extends React.Component {
 
   state = {
     showAdd: false,
-    sortedList: ''
+    employees: this.props.company && this.props.company.employees
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({
+        employees: [...this.props.company.employees]
+      })
+    }
+  }
 
   showAddEmployee = () => {
     this.setState({
       showAdd: !this.state.showAdd
     })
   }
-//parent handles sort feature and holds state
+
   handleSortFeature = (e) => {
-    // console.log(this.props.company.employees)
-    //company array of employees is showing,when state is changed
     let option = e.target.value
-    let employeesSorted = [...this.props.company.employees].sort((a, b) => {
+    let employeesSorted = [...this.state.employees].sort((a, b) => {
   if (a[option] > b[option]) {
     return 1;
   }
@@ -31,10 +36,8 @@ class EmployeeContainer extends React.Component {
   return 0;
   })
     this.setState({
-      sortedList: employeesSorted
+      employees: employeesSorted
     })
-     console.log(this.props.company.employees)
-
   }
 
   render() {
@@ -45,7 +48,7 @@ class EmployeeContainer extends React.Component {
         {this.state.showAdd && (<div><EmployeeForm company={this.props.company}/></div>)}
 
         <br/><br/>
-      <Employees employees={this.props.company && this.props.company.employees} identifyOption={this.handleSortFeature} sortedList={this.state.sortedList}/>
+      <Employees employees={ this.state.employees} identifyOption={this.handleSortFeature} />
 
 
           </div>

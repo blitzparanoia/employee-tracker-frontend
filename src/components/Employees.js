@@ -37,27 +37,6 @@ const Employees = (props) => {
     </tbody>
   </table>
 
-  <p>SORTED TABLE</p>
-  <table align="center" border="5">
-    <tbody align="center">
-      <tr>
-        <th>Name(last, first)</th>
-        <th>Department</th>
-        <th>Position</th>
-        <th>Delete</th>
-      </tr>
-    {props.sortedList && props.sortedList.map(employee =>
-      <tr key={employee.id}>
-        <td>{employee.last_name}, {employee.first_name}</td>
-        <td>{employee.department}</td>
-        <td>{employee.position}</td>
-        <td><button onClick={() => handleDelete(employee)}>Delete</button></td>
-
-      </tr>
-    )}
-  </tbody>
-</table>
-
   </>
   )
 }
