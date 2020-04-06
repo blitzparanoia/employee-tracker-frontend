@@ -17,7 +17,11 @@ class CompanyForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.history.push(`/companies`)
+        console.log('a')
         this.props.addCompany(this.state)
+        for(let i = 0 ; i < 10000 ; i++) {
+            console.log('f')
+        }
         this.setState({
             name: "",
         })
@@ -34,7 +38,7 @@ class CompanyForm extends React.Component {
                     <input type='text' placeholder='Company Name' value={this.state.name} name="name" onChange={this.handleChange} />
 
                     <br/>
-                    
+
                     <input type="submit" />
 
                 </form>
