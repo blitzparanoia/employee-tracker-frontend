@@ -7,16 +7,16 @@ class EmployeeContainer extends React.Component {
 
   state = {
     showAdd: false,
-    employees: this.props.company && this.props.company.employees
+    sortCriteria: ''
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
-      this.setState({
-        employees: [...this.props.company.employees]
-      })
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps !== this.props) {
+  //     this.setState({
+  //       employees: [...this.props.company.employees]
+  //     })
+  //   }
+  // }
 
   showAddEmployee = () => {
     this.setState({
@@ -26,19 +26,26 @@ class EmployeeContainer extends React.Component {
 
   handleSortFeature = (e) => {
     let option = e.target.value
-    let employeesSorted = [...this.state.employees].sort((a, b) => {
-  if (a[option] > b[option]) {
-    return 1;
-  }
-  if (a[option] < b[option]) {
-    return -1;
-  }
-  return 0;
-  })
     this.setState({
-      employees: employeesSorted
+      sortCriteria: option
     })
   }
+
+  sortedEmployeesList = () => {
+    let option = this.state.sortCriteria
+    let employees = (this.props.company && this.props.company.employees) || []
+    return [...employees].sort((a, b) => {
+      if (a[option] > b[option]) {
+        return 1;
+      }
+      if (a[option] < b[option]) {
+        return -1;
+      }
+      return 0;
+    })
+  }
+
+
 
   render() {
     return(
@@ -48,7 +55,7 @@ class EmployeeContainer extends React.Component {
         {this.state.showAdd && (<div><EmployeeForm company={this.props.company}/></div>)}
 
         <br/><br/>
-      <Employees employees={ this.state.employees} identifyOption={this.handleSortFeature} />
+      <Employees employees={this.sortedEmployeesList()} identifyOption={this.handleSortFeature} />
 
 
           </div>
