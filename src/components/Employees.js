@@ -11,7 +11,7 @@ const Employees = (props) => {
 
   return(
     <>
-    <select onChange={props.identifyOption} value={props.value}>
+    <select onChange={props.identifyOption} >
       <option value="last_name">Name</option>
       <option value="department">Department</option>
       <option value="position">Position</option>
